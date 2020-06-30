@@ -1,0 +1,27 @@
+<header class="fixed-top navbar-dark navibar">
+  <nav class="navbar navbar-expand-sm">
+    <%#= link_to(image_tag('logo.jpeg', {size: "50x50"}), root_path, {class: "navbar-brand logo"}) %>
+    <%#= link_to("Stelle", root_path, {class: "navbar-brand logo"}) %>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item"><%#= link_to("ホーム", root_path, {class: "nav-link"}) %></li>
+        <%# if user_signed_in? %>
+          <%#= search_form_for(@q, url: root_path) do |f| %>
+            <%#= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, :include_blank => '選択してください', class: "form-control placeholder-no-fix" %>
+          <%#= f.submit %>
+          <%# end %>
+          <li class="nav-item"><%#= link_to("Stelleを投稿", new_post_path, class: "nav-link")%></li> 
+          <li class="nav-item"><%#= link_to("マイページ", current_user, class: "nav-link")%></li> 
+          <li class="nav-item"><%#= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "nav-link")%></li> 
+        <#% else %>
+          <li class="nav-item"><%#= link_to("Stelleとは", "#", class: "nav-link") %></li>
+          <li class="nav-item"><%#= link_to("新規登録", new_user_registration_path, class: "nav-link") %></li>
+          <li class="nav-item"><%#= link_to("ログイン", new_user_session_path, class: "nav-link") %></li>
+        <#% end %>
+      </ul>
+    </div>
+  </nav>
+</header> 
