@@ -25,3 +25,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# 以下追加
+/public/uploads
+/db/fixtures
+/.env
