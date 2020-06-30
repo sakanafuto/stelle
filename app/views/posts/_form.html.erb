@@ -1,0 +1,26 @@
+<%= form_with scope: :post, model: @post, local: true do |f| %>
+<%= render 'shared/error_messages' %>
+
+<div class="page-body mb-3">
+  <div class="lock-head">
+    Stelleを投稿
+  </div> 
+  <div class="lock-body">
+    <%= f.label :name, 'Stelle名', class: 'label' %>
+    <%= f.text_field :name, {class: 'form-control placeholder-no-fix', placeholder: '名古屋城'} %>
+
+    <%= f.label :prefecture_id, '都道府県', class: 'label' %>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, { prompt: '選択してください', selected: @post.prefecture_id }, { class: "form-control placeholder-no-fix" }) %>
+
+    <%= f.label :caption, '説明', class: 'label' %>
+    <%= f.text_area :caption, {class: 'form-control placeholder-no-fix', placeholder: '金色のシャチホコを是非見に来てください！！', rows: "5"} %>
+
+    <%= f.label :image, '写真', class: 'label' %>
+    <%= f.file_field :image, class: 'form-control placeholder-no-fix' %>
+  </div>
+  <div class="lock-bottom">
+    <%= f.submit yield(:button), class: "btn btn-success placeholder-no-fix" %>
+  </div>
+</div>
+
+<% end %>

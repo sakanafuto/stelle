@@ -1,0 +1,15 @@
+<% if @user.posts.any? %>
+  <div id="show-posts">
+    <div class="grid-container">
+      <% @user.posts.each do |post| %>
+        <div class="grid">
+          <%= link_to image_tag(post.image.index.url), "/posts/#{post.id}", class: "stelle stelle-img" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="no-contents d-flex justify-content-center align-items-center mt-3">
+    投稿がありません
+  </div>
+<% end %>

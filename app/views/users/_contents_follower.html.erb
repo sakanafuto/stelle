@@ -1,0 +1,19 @@
+<% if @user.followers.any? %>
+  <div id="show-followers">
+    <div class="grid-container">
+      <% @user.followers.each do |user| %>
+        <div class="grid">
+          <% if user.avatar? %>
+            <%= link_to image_tag(user.avatar.thumb.url), user %>
+          <% else %>
+            <%= link_to image_tag("default.jpg"), user %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="no-contents d-flex justify-content-center align-items-center mt-3">
+    フォロワーはいません
+  </div>
+<% end %>

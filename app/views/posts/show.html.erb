@@ -1,2 +1,23 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<% provide :title, @post.name %>
+
+<div class="container row m-0">
+
+  <div class="col-md-1">
+    <%= render 'layouts/back' %>
+  </div>
+
+  <div class="show-container col-md-10">
+    <div class="cd row">
+
+      <div class="col-md-6">
+        <%= render 'card' %>
+      </div>
+
+      <div class="col-md-6 stelle-container d-flex align-items-center">
+        <%= image_tag @post.image.show.url, class: "img" %>
+      </div>
+
+    </div>
+  </div>
+
+</div>

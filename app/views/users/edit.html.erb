@@ -1,2 +1,47 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<% provide :title, "プロフィール編集" %>
+<% provide :button, "更新" %>
+
+<%= form_with scope: :user, model: @user, local: true do |f| %>
+<%= render 'shared/error_messages' %>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="page-body">
+      <div class="lock-head">
+        プロフィールを編集
+      </div> 
+      <div class="lock-body">
+
+
+        <%= f.label :name, 'ユーザーネーム', class: 'label' %>
+        <%= f.text_field :name, {class: 'form-control placeholder-no-fix', placeholder: '山田 太郎', autofocus: true} %>
+
+        <%= f.label :email, 'メールアドレス', class: 'label' %>
+        <%= f.text_field :email, {class: 'form-control placeholder-no-fix', placeholder: 'email@example.com'} %>
+
+        <%= f.label :image, 'プロフィール画像', class: 'label' %>
+        <div class="img">
+          <% if @user.avatar? %>
+            <%= image_tag @user.avatar.thumb.url, :size => '100x100', class: "img" %>
+          <% else %>
+            <%= image_tag "default.jpg", :size => '100x100', class: "img" %>
+          <% end %>
+        </div>
+        <%= f.file_field :avatar, class: 'form-control placeholder-no-fix' %>
+        <%= f.hidden_field :avatar_cache %>
+        <% if @user.persisted? && @user.avatar? %>
+          <div class="check-box">
+            <%= f.check_box :remove_avatar, class: ' placeholder-no-fix ' %>
+            <%= f.label :remove_avatar, 'プロフィール画像を削除しますか？', class: 'remove' %>
+          </div>
+        <% end %>
+
+      </div>
+      <div class="lock-bottom">
+        <%= f.submit yield(:button), class: "btn btn-success placeholder-no-fix" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
