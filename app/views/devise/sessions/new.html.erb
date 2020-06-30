@@ -1,0 +1,38 @@
+<% provide :title, "ログイン" %>
+<% provide :button, "ログイン" %>
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <%= render "devise/shared/notice_alert" %>
+    <%= render 'layouts/guest_sign_in' %>
+    <div class="page-body">
+      <div class="lock-head">
+        ログインする
+      </div> 
+      <div class="lock-body">
+
+        <%= f.label :email, 'メールアドレス', class: 'label' %>
+        <%= f.email_field :email, {class: 'form-control placeholder-no-fix', placeholder: 'email@example.com'} %>
+
+        <%= f.label :password, 'パスワード', class: 'label' %>
+        <%= f.password_field :password, {class: 'form-control placeholder-no-fix', placeholder: '6文字以上', disable: true} %>
+
+        <% if devise_mapping.rememberable? %>
+            <%= f.label :remember_me, class: 'label check-box inline' do %>
+              <%= f.check_box :remember_me %>
+              <span>ログイン状態を保持</span>
+            <% end %>
+        <% end %>
+
+      </div>
+      <div class="lock-bottom">
+        <%= f.submit yield(:button), class: "btn btn-success placeholder-no-fix" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
