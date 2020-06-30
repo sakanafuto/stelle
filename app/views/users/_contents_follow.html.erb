@@ -1,52 +1,19 @@
-<div class="container mt-5">
-
-  <ul class="nav nav-tabs justify-content-center my-3">
-    <li class="nav-item">
-      <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">
-        <div class="user-status">
-          <p class="status-name">投稿</p>
+<% if @user.followings.any? %>
+  <div id="show-follows">
+    <div class="grid-container">
+      <% @user.followings.each do |user| %>
+        <div class="grid">
+          <% if user.avatar? %>
+            <%= link_to image_tag(user.avatar.thumb.url), user %>
+          <% else %>
+            <%= link_to image_tag("default.jpg"), user %>
+          <% end %>
         </div>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" id="likes-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="true">
-        <div class="user-status">
-          <p class="status-name">行ってみたい！</p>
-        </div>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" id="likes-tab" data-toggle="tab" href="#item3" role="tab" aria-controls="item3" aria-selected="true">
-        <div class="user-status">
-          <p class="status-name">フォロー</p>
-        </div>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" id="likes-tab" data-toggle="tab" href="#item4" role="tab" aria-controls="item4" aria-selected="true">
-        <div class="user-status">
-          <p class="status-name">フォロワー</p>
-        </div>
-      </a>
-    </li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="posts-tab">
-      <%= render 'contents_posts' %>
-    </div>
-    <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="likes-tab">
-      <%= render 'contents_like' %>
-    </div>
-    <div class="tab-pane fade" id="item3" role="tabpanel" aria-labelledby="follows-tab">
-      <%= render 'contents_follow' %>
-    </div>
-    <div class="tab-pane fade" id="item4" role="tabpanel" aria-labelledby="followers-tab">
-      <%= render 'contents_follower' %>
+      <% end %>
     </div>
   </div>
-
-</div>
+<% else %>
+  <div class="no-contents d-flex justify-content-center align-items-center mt-3">
+    フォローしている人はいません
+  </div>
+<% end %>
