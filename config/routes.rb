@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
-  get 'posts/show'
-  get 'posts/index'
-  get 'posts/new'
-  get 'users/show'
-  get 'users/index'
-  get 'users/edit'
-  devise_for :users
+  root 'posts#index'
+  
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+  
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  get 'users', to: 'posts#index'
+
+  resources :posts
+  resources :likes, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 end
