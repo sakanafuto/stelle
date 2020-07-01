@@ -256,35 +256,6 @@ body {
   }
 }
 
-// grid
-
-.grid-container {
-  object-fit: contain;
-
-  .grid {
-    position: relative;
-    display: inline-block;
-    -webkit-column-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-    break-inside: column-avoid;
-    
-    img {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      margin-top: 20px;
-    }
-    
-    .like-area {
-      @include shadow;
-      z-index:1000;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-  }
-}
-
 .info {
   position: relative;
   &:hover span{
@@ -308,6 +279,34 @@ body {
       border-right: 10px solid transparent;
       left: 45%;
       top: -30%;
+    }
+  }
+}
+
+// grid
+
+.grid-container {
+  object-fit: contain;
+
+  .grid {
+    position: relative;
+    display: inline-block;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    break-inside: column-avoid;
+    
+    img {
+      width: 100%;
+      margin: 0;
+      margin-top: 20px;
+    }
+    
+    .like-area {
+      @include shadow;
+      z-index:1000;
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
 }
