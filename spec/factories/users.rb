@@ -22,6 +22,28 @@
 #
 FactoryBot.define do
   factory :user do
-    
+    name { 'TestUser' }
+    sepuence(:email) { |i| "test#{i}@sample.com" }
+    password { 'password' }
+  end
+
+  trait :invalid do
+    name { '' }
+    emaiil { 'test@test' }
+    password { 'test' }
+  end
+
+  trait :admin do
+    name { 'AdminUser' }
+    email { 'admin@sample.com' }
+    password { 'adminpass'}
+    admin { 'true' }
+  end
+  
+  trait :guest do
+    name { 'GuestUser' }
+    email { 'guest@sample.com' }
+    password { 'guestpass'}
+    guest { 'true' }
   end
 end
