@@ -1,0 +1,9 @@
+<% if flash[:errors] %>
+  <div class="notification pt-5">
+    <ul class="alert">
+      <% flash[:errors].each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %> 

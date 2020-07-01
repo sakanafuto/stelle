@@ -1,0 +1,109 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$stelle:  hsl(0, 100%, 70%);
+$btn:      hsl(0, 0%, 35%);
+
+@mixin shadow {
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+}
+$shade: rgba(201, 201, 201, .6);
+
+.show-container {
+  margin-top: 64px;
+  border: 1px solid $shade;
+  box-shadow: 5px 5px 5px $shade;
+  
+  .cd {
+    text-align: center;
+    border: none;
+
+    .cd-header {
+      display: flex;
+      align-items: flex-end;
+      border-bottom: 1px solid $shade;
+      width: 100%;
+      box-sizing: border-box;
+      
+      .name {
+        padding-left: 8px;
+        font-size: .8rem;
+        color: gray;
+      }
+      
+      img {
+        border-radius: 50%;
+      }
+      .relationship {
+        margin-left: auto;
+      }
+    }
+    
+    .cd-body {
+      width: 100%;
+      box-sizing: border-box;
+      text-align: start;
+
+      .title {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+
+      .prefecture {
+        font-size: .9rem;
+        color: grey;
+      }
+
+      .caption {
+        font-size: 1rem;
+      }
+    }
+    
+    .cd-footer {
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 1px solid $shade;
+      
+      button {
+        margin: 0;
+      }
+    }
+    
+    .stelle-container {
+      padding: 0;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.like {
+  margin: 10px;
+  height: 40px;
+  line-height: 20px;
+  width: auto;
+  display: block;
+  border-style: none;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50%;
+  -weabkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.like-on {
+  background-color: #FFA500;
+  &:hover{
+    background-color: #f9c500;
+  }
+}
+
+.like-off {
+  background-color: #cccccc;
+  &:hover{
+    background-color: #f9c500;
+  }
+}

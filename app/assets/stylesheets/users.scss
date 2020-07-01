@@ -1,3 +1,88 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* mixins, variables, etc. */
+
+@font-face {
+  font-family: 'fnkfrsh';
+  src: font_url('/assets/Hello-Bunny.ttf') format('truetype');
+  font-style:nomal;
+  font-weight:normal;
+}
+
+$stelle:  hsl(0, 100%, 70%);
+$btn:      hsl(0, 0%, 35%);
+$tab2:  hsl(0, 0%, 40%);
+
+.profile-container{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  
+  img {
+    border-radius: 50%;
+  }
+
+  .profile {
+    .name {
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+    
+    .email {
+      color: gray;
+      font-family: 'fnkfrsh';
+    }
+  }
+}
+  
+  /* Menu */
+  
+.user-menu {
+  display: flex;
+  border-top: rgb(165, 165, 165) 1px solid;
+    
+  .item {
+    margin-right: 24px;
+    text-align: center;
+    color: rgb(165, 165, 165);
+    &:hover{
+      color: black;
+    }
+  }
+}
+
+.relationship {
+  .btn-success {
+    padding: 10px;
+    width: 220px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+    background-color: $btn !important;
+    &:hover {
+      background-color: $stelle !important;
+    }
+  }
+}
+
+.nav-tabs {
+  border: none;
+  border-top: solid 1px rgb(165, 165, 165);
+
+  .nav-link {
+    background: $tab2;
+    width: 100%;
+    border-radius: 0;
+
+    .user-status {
+      color: black;
+      height: 2em;
+    }
+  }
+
+  .active {
+    background: $stelle !important;
+  }
+}

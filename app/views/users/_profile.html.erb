@@ -1,0 +1,29 @@
+<div class="container profile-container row">
+
+  <div class="col-md-4 text-center">
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar.profile.url, :size => '250x250' %>
+    <% else %>
+      <%= image_tag "/assets/default.jpg", :size => '250x250' %>
+    <% end %>
+  </div>
+  
+  <div class="col-md-8">
+    <div class="profile">
+        <div class="name"><%= @user.name %></div>
+        <div class="email"><%= @user.email %></div>
+    </div>
+    <div class="user-menu mt-3 pt-3">
+      <% if current_user.id == @user.id %>
+        <%= link_to edit_user_path, class: "item" do %>
+          <i class="fa fa-pencil fa-2x"></i>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "item" do %>
+          <i class="fa fa-sign-out fa-2x"></i>
+        <% end %>
+      <% end %>
+      <%= render 'follow', user: @user %>
+    </div>
+  </div>
+
+</div>

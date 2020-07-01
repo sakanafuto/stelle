@@ -1,0 +1,38 @@
+<% provide :title, "" %>
+<%= render 'layouts/guest_sign_in' %>
+
+
+<%= search_form_for(@q, url: root_path) do |f| %>
+  <div class="row align-items-center">
+    <div class="select_box col-8 offset-1 pt-3">
+      <%= f.collection_select(:prefecture_id_eq, Prefecture.all, :id, :name, {include_blank: "都道府県で検索"}, {class: "select custom-select"}) %>
+    </div>
+    <div class="search col-2 ">
+      <%= f.button type: 'submit', class: "btn" do %>
+        <i class='fa fa-search'></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="grid-container">
+  <% @posts.each do |post| %>
+    <div class="grid">
+      <%= link_to image_tag(post.image.index.url), "/posts/#{post.id}" %>
+      <%= render partial: 'like_form', locals: { post: post} %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $(function () {
+      $('.like-area').hide();
+      $('.grid').hover(
+      function () {
+          $(this).children('.like-area').fadeIn('fast');
+      },
+      function () {
+          $(this).children('.like-area').fadeOut('fast');
+      });
+  });
+</script>

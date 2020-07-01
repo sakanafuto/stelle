@@ -1,0 +1,13 @@
+<div class="like-area flex-grow-1">
+  <% if user_signed_in? %>
+    <% unless post.user.id == current_user.id %>
+      <div id="likes_buttons_<%= post.id %>">
+        <% if post.already_liked?(current_user) %>
+          <%= render 'unlike', post: post %>
+        <% else %>
+          <%= render 'like', post: post %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

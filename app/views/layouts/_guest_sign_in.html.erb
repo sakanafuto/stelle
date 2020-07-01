@@ -1,0 +1,7 @@
+<% unless user_signed_in? %>
+  <div class="guest_sign_in py-5">
+    <%= link_to users_guest_sign_in_path, method: :post, class: "btn" do %>
+      <i class="fa fa-sign-in" aria-hidden="true">  ゲストユーザーとしてログインする</i>
+    <% end %>
+  </div>
+<% end %> 
