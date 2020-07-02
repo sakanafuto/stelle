@@ -23,13 +23,13 @@
 FactoryBot.define do
   factory :user do
     name { 'TestUser' }
-    sepuence(:email) { |i| "test#{i}@sample.com" }
+    sequence(:email) { |i| "test#{i}@sample.com" }
     password { 'password' }
   end
 
   trait :invalid do
     name { '' }
-    emaiil { 'test@test' }
+    email { 'test@test' }
     password { 'test' }
   end
 

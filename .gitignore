@@ -28,5 +28,4 @@
 
 # 以下追加
 /public/uploads
-/db/fixtures
 /.env
