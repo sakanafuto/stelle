@@ -52,7 +52,9 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 namespace :deploy do
   desc 'Restart application'
   task :restart do
-    invoke 'unicorn:restart'
+    on roles(:app) do
+      invoke 'unicorn:restart'
+    end
   end
 
   desc 'Create database'
@@ -85,15 +87,8 @@ namespace :deploy do
   end
 end
 
-desc 'Restart application'
-task :restart do
-  on roles(:app) do
-    invoke 'unicorn:restart'
-  end
-end
-
 
 # # linked_filesで使用するファイルをアップロードするタスクは、deployが行われる前に実行する必要がある
-# before 'deploy:starting', 'deploy:upload'
+before 'deploy:starting', 'deploy:upload'
 # # Capistrano 3.1.0 からデフォルトで deploy:restart タスクが呼ばれなくなったので、ここに以下の1行を書く必要がある
-# after 'deploy:publishing', 'deploy:restart'
+after 'deploy:publishing', 'deploy:restart'
