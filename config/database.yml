@@ -52,7 +52,7 @@ production:
   adapter: mysql2
   encoding: utf8
   pool: 5
-  database: pictweet_production
+  database: stelle_app_production
   username: root
   password:
   socket: /var/lib/mysql/mysql.sock
