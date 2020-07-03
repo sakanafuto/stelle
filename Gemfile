@@ -31,6 +31,7 @@ gem 'mini_magick', '4.8.0'
 gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
+gem 'therubyracer',  platforms: :ruby
 
 
 group :development, :test do
