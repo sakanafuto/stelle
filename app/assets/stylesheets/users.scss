@@ -4,11 +4,8 @@
 
 /* mixins, variables, etc. */
 
-@font-face {
-  font-family: 'fnkfrsh';
-  src: font_url('/assets/Hello-Bunny.ttf') format('truetype');
-  font-style:nomal;
-  font-weight:normal;
+@mixin shadow {
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
 }
 
 $stelle:  hsl(0, 100%, 70%);
@@ -68,16 +65,17 @@ $tab2:  hsl(0, 0%, 40%);
 }
 
 .nav-tabs {
+  @include shadow;
   border: none;
   border-top: solid 1px rgb(165, 165, 165);
 
   .nav-link {
-    background: $tab2;
+    background: snow;
     width: 100%;
     border-radius: 0;
 
     .user-status {
-      color: black;
+      color: rgb(39, 39, 39);
       height: 2em;
     }
   }
