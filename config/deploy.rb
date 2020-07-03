@@ -52,9 +52,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 namespace :deploy do
   desc 'Restart application'
   task :restart do
-    on roles(:app) do
-      invoke 'unicorn:restart'
-    end
+    invoke 'unicorn:restart'
   end
 
   desc 'Create database'
@@ -86,6 +84,14 @@ namespace :deploy do
     end
   end
 end
+
+desc 'Restart application'
+task :restart do
+  on roles(:app) do
+    invoke 'unicorn:restart'
+  end
+end
+
 
 # # linked_filesで使用するファイルをアップロードするタスクは、deployが行われる前に実行する必要がある
 # before 'deploy:starting', 'deploy:upload'
