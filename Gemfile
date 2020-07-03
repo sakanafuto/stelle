@@ -31,7 +31,7 @@ gem 'mini_magick', '4.8.0'
 gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
-gem 'therubyracer',  platforms: :ruby
+gem 'mini_racer'
 
 
 group :development, :test do
@@ -58,6 +58,8 @@ group :development do
   gem 'annotate'
   gem 'bullet'
   gem 'rails-flog', require: 'flog'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 
