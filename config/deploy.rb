@@ -10,7 +10,7 @@ set :repo_url, "git@github.com:sakanafuto/stelle.git"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/stelle"
 
-set :scm, :git
+# set :scm, :git
 
 set :format, :pretty
 set :log_level, :debug
@@ -46,7 +46,7 @@ set :keep_releases, 5
 set :rbenv_type, :user # :system or :user
 set :rbenv_ruby, '2.6.5'
 
-set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 namespace :deploy do
@@ -85,7 +85,7 @@ namespace :deploy do
   end
 end
 
-# linked_filesで使用するファイルをアップロードするタスクは、deployが行われる前に実行する必要がある
-before 'deploy:starting', 'deploy:upload'
-# Capistrano 3.1.0 からデフォルトで deploy:restart タスクが呼ばれなくなったので、ここに以下の1行を書く必要がある
-after 'deploy:publishing', 'deploy:restart'
+# # linked_filesで使用するファイルをアップロードするタスクは、deployが行われる前に実行する必要がある
+# before 'deploy:starting', 'deploy:upload'
+# # Capistrano 3.1.0 からデフォルトで deploy:restart タスクが呼ばれなくなったので、ここに以下の1行を書く必要がある
+# after 'deploy:publishing', 'deploy:restart'
