@@ -29,3 +29,4 @@
 # 以下追加
 /public/uploads
 /.env
+/config/credentials/production.key

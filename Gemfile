@@ -44,7 +44,7 @@ group :development, :test do
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
+  gem 'therubyracer',  platforms: :ruby
 end
 
 
@@ -73,7 +73,7 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'unicorn', '5.4.1'
 end
 
 
