@@ -31,8 +31,6 @@
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :migration_role, 'db'
-
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
@@ -41,11 +39,11 @@ set :migration_role, 'db'
 #
 # Global options
 # --------------
-  set :ssh_options, {
-    keys: '~/.ssh/spot'
-    # forward_agent: false,
-    # auth_methods: %w(password)
-  }
+# set :ssh_options, {
+#   # keys: '~/.ssh/'
+#   # forward_agent: false,
+#   # auth_methods: %w(password)
+# }
 
 # The server-based syntax can be used to override options:
 # ------------------------------------
@@ -60,4 +58,17 @@ set :migration_role, 'db'
 #     # password: "please use keys"
 #   }
 
+
+set :stage, :staging
+set :rails_env, "staging"
+set :unicorn_rack_env, "staging"
+
+set :migration_role, 'db'
+
+role :app, %w{stelle@3.112.153.67}
+role :web, %w{stelle@3.112.153.67}
+role :db,  %w{stelle@3.112.153.67}, :primary => true
+
 server '3.112.153.67', user: 'stelle', roles: %w{app db web}
+
+set :ssh_options, keys: '~/.ssh/spot'
