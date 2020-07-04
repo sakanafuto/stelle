@@ -59,9 +59,9 @@
 #   }
 
 
-set :stage, :staging
-set :rails_env, "staging"
-set :unicorn_rack_env, "staging"
+# set :stage, :staging
+# set :rails_env, "staging"
+# set :unicorn_rack_env, "staging"
 
 set :migration_role, 'db'
 
