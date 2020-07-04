@@ -66,3 +66,5 @@ set :unicorn_rack_env, "staging"
 set :migration_role, 'db'
 
 server '3.112.153.67', user: 'stelle', roles: %w{app db web}
+
+set :ssh_options, keys: '~/.ssh/spot'
