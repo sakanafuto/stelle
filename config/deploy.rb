@@ -5,7 +5,7 @@ set :repo_url, "git@github.com:sakanafuto/stelle.git"
 
 set :deploy_to, "/var/www/stelle"
 
-set :scm, :git
+# set :scm, :git
 set :format, :pretty
 set :log_level, :debug
 set :pty, true
