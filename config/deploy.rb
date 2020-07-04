@@ -1,3 +1,5 @@
+require "bundler/capistrano"
+
 lock "3.14.1"
 
 set :application, "stelle"
@@ -47,7 +49,7 @@ namespace :deploy do
       end
     end
   end
-  
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
     end
