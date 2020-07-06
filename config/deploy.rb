@@ -1,4 +1,4 @@
-lock "3.14.1"
+lock "3.0.1"
 
 set :application, "stelle"
 set :repo_url, "git@github.com:sakanafuto/stelle.git"
