@@ -34,6 +34,8 @@ gem 'ransack'
 gem 'webpacker', github: "rails/webpacker"
 gem 'therubyracer',  platforms: :ruby
 gem 'unicorn'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 
 group :development, :test do
