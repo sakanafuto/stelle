@@ -31,7 +31,7 @@ gem 'mini_magick', '4.8.0'
 gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
-gem 'mini_racer'
+gem 'webpacker', github: "rails/webpacker"
 
 
 group :development, :test do
@@ -41,10 +41,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
 end
 
 
@@ -58,8 +54,6 @@ group :development do
   gem 'annotate'
   gem 'bullet'
   gem 'rails-flog', require: 'flog'
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
 end
 
 
@@ -70,10 +64,6 @@ group :test do
   # ---以下追加---  
   gem 'selenium-webdriver'
   gem 'rspec_junit_formatter'
-end
-
-group :production, :staging do
-  gem 'unicorn'
 end
 
 

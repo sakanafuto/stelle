@@ -29,3 +29,11 @@
 # 以下追加
 /public/uploads
 /.env
+/config/credentials/production.key
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
