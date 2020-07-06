@@ -43,9 +43,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
-  gem 'capistrano', '~>3.0.1'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
+  gem 'capistrano',            '~>3.5.0'
+  gem 'capistrano-bundler',   '~> 1.1.3'
+  gem 'capistrano-rails',     '~> 1.1.7'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
 end
