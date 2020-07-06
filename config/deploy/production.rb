@@ -58,12 +58,15 @@
 #     # password: "please use keys"
 #   }
 
-
-set :stage, :staging
-set :rails_env, "staging"
-set :unicorn_rack_env, "staging"
+set :stage, :production
+set :rails_env, "production"
+set :unicorn_rack_env, "production"
 
 set :migration_role, 'db'
+
+role :app, %w{Stelle@3.112.153.67}
+role :web, %w{Stelle@3.112.153.67}
+role :db,  %w{Stelle@3.112.153.67}, :primary => true
 
 server '3.112.153.67', user: 'stelle', roles: %w{app db web}
 

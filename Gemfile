@@ -32,6 +32,8 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'webpacker', github: "rails/webpacker"
+gem 'therubyracer',  platforms: :ruby
+gem 'unicorn'
 
 
 group :development, :test do
@@ -41,6 +43,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
+  gem 'capistrano', '~>3.0.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 
