@@ -70,6 +70,6 @@ role :app, %w{Stelle@3.112.153.67}
 role :web, %w{Stelle@3.112.153.67}
 role :db,  %w{Stelle@3.112.153.67}, :primary => true
 
-server '3.112.153.67', user: 'stelle', roles: %w{app db web}
+server '3.112.153.67', user: 'Stelle', roles: %w{app db web}
 
-set :ssh_options, keys: '~/.ssh/spot'
+set :ssh_options, keys: '~/stelle_key_rsa'
