@@ -28,12 +28,15 @@ namespace :unicorn do
   end
 
 #unicornをスタートさせるtask
-  desc "Start unicorn server"
-  task start: :environment do
-    on roles(:app) do
-      start_unicorn
+task restart: :environment do
+  on roles(:app) do
+    if test("[ -f #{fetch(:unicorn_pid)} ]")
+      reload_unicorn # 再起動タスク　→　一度起動タスクに変えてデプロイし、元に戻す
+    else
+      start_unicorn  # 起動タスク
     end
   end
+end
 
 #unicornを停止させるtask
   desc "Stop unicorn server gracefully"
