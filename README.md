@@ -1,24 +1,21 @@
-# README
+# Stelee
+Railsで作る初めてのWebアプリとして、お気に入りの場所を投稿してみんなで共有するアプリを制作しました。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+今も開発が続いており、現在では簡単ないいね機能やフォロー・フォロワー機能しかありません。AWSを利用したデプロイに挑戦したくて、本番環境に慣れるためにもβ版としてデプロイしました。
 
-Things you may want to cover:
+ホーム画面では投稿画像の比率に合わせて柔軟にグリッドを組んでくれるシステムを導入し、Ajaxを用いてホーム画面から簡単にいいねが押せるようにしました。
 
-* Ruby version
+git管理としてはmaster, topicの２つのブランチで運用をする方法をとり、GitHubではプルリクエストやレビューを用いて疑似チーム開発についても学びました。
 
-* System dependencies
+# URL
+http://3.112.153.67/
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 使用技術
+- Ruby 2.6.5
+- Rails 6.0.3.2
+- RSpec
+- MySQL 8.0.19
+- Linux
+- Nginx / Unicorn
+- AWS (VPC, EC2, S3)
+- jQuery / Sass / Bootstrap
