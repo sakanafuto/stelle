@@ -13,14 +13,12 @@ set :pty, true
 
 set :keep_releases, 5
 
-set :rbenv_type, :user # :system or :user
+set :rbenv_type, :user
 set :rbenv_ruby, '2.6.5'
 
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-set :rbenv_roles, :all # default value
 
-# set :linked_files, %w{config/database.yml}
 set :linked_files, fetch(:linked_files, []).push('config/master.key')
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
@@ -34,6 +32,28 @@ namespace :deploy do
   task :restart do
     on roles(:app) do
       invoke 'unicorn:restart'
+    end
+  end
+
+  desc 'Create database'
+  task :db_create do
+    on roles(:db) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :bundle, :exec, :rake, 'db:create'
+        end
+      end
+    end
+  end
+
+  desc 'Run seed'
+  task :seed do
+    on roles(:app) do
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :bundle, :exec, :rake, 'db:seed'
+        end
+      end
     end
   end
 end

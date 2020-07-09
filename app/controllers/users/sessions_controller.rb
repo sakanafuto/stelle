@@ -12,14 +12,13 @@ class Users::SessionsController < Devise::SessionsController
 
   #ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
-    users_path(resource)
-    flash[:success] = 'ログインしました！'
+    root_path
+    # flash[:success] = 'ログインしました！'
   end 
   
   #ログアウト後のリダイレクト先
   def after_sign_out_path_for(resource)
     root_path
-    # flash[:success] = 'ログアウトしました！'
   end 
 
   # GET /resource/sign_in
