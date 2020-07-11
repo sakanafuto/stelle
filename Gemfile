@@ -32,7 +32,7 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'webpacker', github: "rails/webpacker"
-gem 'therubyracer',  platforms: :ruby
+gem 'mini_racer'
 gem 'unicorn'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
@@ -45,11 +45,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
-  gem 'capistrano',            '~>3.5.0'
-  gem 'capistrano-bundler',   '~> 1.1.3'
-  gem 'capistrano-rails',     '~> 1.1.7'
-  gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
+  # gem 'capistrano',            '~>3.5.0'
+  # gem 'capistrano-bundler',   '~> 1.1.3'
+  # gem 'capistrano-rails',     '~> 1.1.7'
+  # gem 'capistrano-rbenv'
+  # gem 'capistrano3-unicorn'
 end
 
 

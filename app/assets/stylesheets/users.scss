@@ -65,12 +65,12 @@ $tab2:  hsl(0, 0%, 40%);
 }
 
 .nav-tabs {
-  @include shadow;
+  // @include shadow;
   border: none;
   border-top: solid 1px rgb(165, 165, 165);
 
   .nav-link {
-    background: snow;
+    // background: snow;
     width: 100%;
     border-radius: 0;
 
@@ -81,6 +81,6 @@ $tab2:  hsl(0, 0%, 40%);
   }
 
   .active {
-    background: $stelle !important;
+    background: $tab2 !important;
   }
 }

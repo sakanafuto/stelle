@@ -34,7 +34,7 @@ guest_user.avatar = open("#{Rails.root}/db/fixtures/avatar/image-0.jpg")
 guest_user.save
 
 # 一般ユーザーの作成
-30.times do |i|
+20.times do |i|
   name  = Faker::Name.name
   email = Faker::Internet.email
   password = 'password'
@@ -76,6 +76,12 @@ guest_user_posts = [
     prefecture_id: 23,
     caption: "金のシャチホコが見えます！",
     image: "#{Rails.root}/spec/fixtures/image.jpg"
+  },
+  {
+    name: "矢代の海",
+    prefecture_id: 18,
+    caption: "SUPボードに乗ってみたい人は是非！！！",
+    image: "#{Rails.root}/db/fixtures/stelle/yashiro.jpg"
   }
 ]
 
@@ -131,9 +137,9 @@ user_posts = [
     image: "#{Rails.root}/db/fixtures/stelle/yamanakako.jpg"
   },
   {
-    name: "藤の花と春日大社の門",
+    name: "春日大社の門",
     prefecture_id: 29,
-    caption: "本当にきれい！",
+    caption: "燈籠きれい！",
     image: "#{Rails.root}/db/fixtures/stelle/kasugataisha.jpg"
   },
   {
@@ -163,14 +169,32 @@ user_posts = [
   {
     name: "一の滝",
     prefecture_id: 30,
-    caption: "原始林固有の植生はマニア必見",
-    image: "#{Rails.root}/db/fixtures/stelle/nachiotaki.jpg"
+    caption: "那智大滝は見るべき！",
+    image: "#{Rails.root}/db/fixtures/stelle/nachinotaki.jpg"
   },
   {
     name: "姫路城",
     prefecture_id: 28,
-    caption: "白漆喰がせくすぃーな白鷺城",
+    caption: "白漆喰がセクシーな白鷺城",
     image: "#{Rails.root}/db/fixtures/stelle/himejijo.jpg"
+  },
+  {
+    name: "坑道「龍源寺間歩」",
+    prefecture_id: 32,
+    caption: "石見銀山の600ｍもある坑道です。",
+    image: "#{Rails.root}/db/fixtures/stelle/ryugenjimabu.jpg"
+  },
+  {
+    name: "東廻廊から見える大鳥居",
+    prefecture_id: 34,
+    caption: "厳島神社です。",
+    image: "#{Rails.root}/db/fixtures/stelle/itsukushimajinja.jpg"
+  },
+  {
+    name: "有明海に沈む床路",
+    prefecture_id: 43,
+    caption: "潮が引いたときに見ることが出来ます。雲仙普賢岳もここから見れますよ。",
+    image: "#{Rails.root}/db/fixtures/stelle/nagabetakaishoro.jpg"
   }
 ]
 

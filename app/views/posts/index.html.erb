@@ -19,20 +19,23 @@
   <% @posts.each do |post| %>
     <div class="grid">
       <%= link_to image_tag(post.image.index.url), "/posts/#{post.id}" %>
-      <%= render partial: 'like_form', locals: { post: post} %>
+      <div class="option">  
+        <%= render partial: 'name_area', locals: { post: post} %>
+        <%= render partial: 'like_form', locals: { post: post} %>
+      </div>
     </div>
   <% end %>
 </div>
 
 <script>
   $(function () {
-      $('.like-area').hide();
+      $('.option').hide();
       $('.grid').hover(
       function () {
-          $(this).children('.like-area').fadeIn('fast');
+          $(this).children('.option').fadeIn('fast');
       },
       function () {
-          $(this).children('.like-area').fadeOut('fast');
+          $(this).children('.option').fadeOut('fast');
       });
   });
 </script>

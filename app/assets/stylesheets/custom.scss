@@ -300,13 +300,36 @@ body {
       margin: 0;
       margin-top: 20px;
     }
+    @media screen and (max-width: 480px) {
+      .like-area, .name-area {
+        display: none;
+      }
+    }
     
-    .like-area {
-      @include shadow;
-      z-index:1000;
-      position: absolute;
-      bottom: 0;
-      right: 0;
+    @media screen and (min-width: 481px) {
+
+      .like-area {
+        @include shadow;
+        z-index:1000;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      
+      .name-area {
+        @include shadow;
+        height: 20px;
+        padding: 0 8px;
+        z-index:1000;
+        position: absolute;
+        top: 30px;
+        left: 10px;
+        background: snow;
+        border-radius: .5rem;
+        p {
+          font-size: .8rem;
+        }
+      }
     }
   }
 }
@@ -369,13 +392,13 @@ body {
 
 @media screen and (max-width: 480px) {
   .grid-container {
-    -webkit-column-count: 1;
+    -webkit-column-count: 2;
     -webkit-column-gap: 15px;
     -webkit-column-fill: auto;
-    -moz-column-count: 1;
+    -moz-column-count: 2;
     -moz-column-gap: 15px;
     -moz-column-fill: balance !important;
-    column-count: 1;
+    column-count: 2;
     column-gap: 20px;
     column-fill: auto;
   }
