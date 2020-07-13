@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 
-gem 'rails', '>= 5.2.4.2'
+gem 'rails', '= 6.0.3.2'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'turbolinks', '~> 5'
 gem 'puma', '~> 3.11'
@@ -27,7 +27,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'faker'
 gem 'carrierwave'
-gem 'mini_magick', '4.8.0'
+gem 'mini_magick', '4.9.4'
 gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
