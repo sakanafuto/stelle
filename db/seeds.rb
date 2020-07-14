@@ -11,7 +11,6 @@ require 'csv'
 CSVROW_PREFID = 1
 CSVROW_PREFNAME = 2
 
-# CSVファイルの読み込み
 CSV.foreach('db/csv/prefectures.csv') do |row|
   prefecture_id = row[CSVROW_PREFID]
   prefecture_name = row[CSVROW_PREFNAME]

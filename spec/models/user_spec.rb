@@ -27,11 +27,11 @@ RSpec.describe User, type: :model do
     @user = build(:user)
   end
 
-  it 'ファクトリが有効である' do
+  it "ファクトリが有効である" do
     expect(build(:user)).to be_valid
   end
 
-  it '名前、メール、パスワードがある場合、有効' do
+  it "名前、メール、パスワードがある場合、有効" do
     user = User.new(
       name: 'TestUser',
       email: 'test@sample.com',
@@ -106,7 +106,7 @@ RSpec.describe User, type: :model do
       expect(user2).to_not be_valid
     end
     
-    it "メールアドレスは大小文字を区別せず扱うこと" do
+    it "メールアドレスは大小文字を区別せず扱う" do
       user1 = FactoryBot.create(:user, email: "test@sample.com")
       user2 = FactoryBot.build(:user, email: "TEST@SamplE.cOm")
       user2.valid?
@@ -131,8 +131,23 @@ RSpec.describe User, type: :model do
         expect(@user).to_not be_valid
       end
     end
+
+    it "パスワードが暗号化されていない場合、無効" do
+      user = create(:user)
+      expect(user.encrypted_password).to_not eq 'password'
+    end
   end
 
-  describe ""
+  describe "その他機能" do
+
+    it 'ユーザーをフォロー/フォロー解除できること' do
+      Taro = create(:user)
+      Jiro = create(:user)
+      expect(Taro.following?(Jiro)).to eq false
+      Taro.follow(Jiro)
+      expect(Taro.following?(Jiro)).to eq true
+      Taro.unfollow(Jiro)
+      expect(Taro.following?(Jiro)).to eq false
+    end
   end
 end

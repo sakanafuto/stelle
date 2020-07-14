@@ -23,10 +23,12 @@
 #
 FactoryBot.define do
   factory :post do
-    name { "MyString" }
-    caption { "MyText" }
-    image { "MyString" }
-    user { nil }
-    prefecture { nil }
+    name { "名古屋城 " }
+    caption { "よき" }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image.jpg')) }
+    prefecture_id { 23 }
+    association :user
+    association :prefecture
+    created_at { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
   end
 end

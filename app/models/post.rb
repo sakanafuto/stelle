@@ -35,7 +35,6 @@ class Post < ApplicationRecord
   validates :name, presence: true
   validates :caption, presence: true, length: { maximum: 300 }
   validates :image, presence: true
-  validates :prefecture_id, presence: true
 
   def like(user)
     likes.create(user_id: user.id)
