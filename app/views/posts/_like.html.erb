@@ -1,6 +1,0 @@
-<%= form_with(model: post.likes.build) do |f| %>
-  <%= hidden_field_tag :post_id, post.id %>
-  <%= f.button :type => "submit", class: "like like-off" do %>
-    <i class="fa fa-thumbs-o-up fa-2x"></i>
-  <% end %>
-<% end %>

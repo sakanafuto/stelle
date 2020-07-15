@@ -21,7 +21,9 @@
       <%= link_to image_tag(post.image.index.url), "/posts/#{post.id}" %>
       <div class="option">  
         <%= render partial: 'name_area', locals: { post: post} %>
-        <%= render partial: 'like_form', locals: { post: post} %>
+        <% if user_signed_in? %>
+          <%= render partial: 'like_form', locals: { post: post} %>
+        <% end %>
       </div>
     </div>
   <% end %>

@@ -12,6 +12,8 @@
 </div>
 
 <div class="cd-footer py-3 d-flex">
-  <%= render 'like_form', post: @post %>
-  <p class="text-right"><%= l @post.created_at %></p>
+  <% if user_signed_in? %>
+    <%= render 'like_form', post: @post %>
+  <% end %>
+  <small class="text-right"><%= l @post.created_at, format: :short %>に投稿</small>
 </div>

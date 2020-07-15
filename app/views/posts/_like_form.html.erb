@@ -1,13 +1,32 @@
 <div class="like-area flex-grow-1">
-  <% if user_signed_in? %>
-    <% unless post.user.id == current_user.id %>
-      <div id="likes_buttons_<%= post.id %>">
-        <% if post.already_liked?(current_user) %>
-          <%= render 'unlike', post: post %>
-        <% else %>
-          <%= render 'like', post: post %>
-        <% end %>
-      </div>
+  <% if post.user.id == current_user.id %>
+    
+    <%= link_to post_path(post.id), method: :delete, data: {confirm: "削除しますか？"} do %>
+      <button class="trash"><i class="fa fa-trash fa-2x"></i></button>
     <% end %>
+
+  <% else %>
+
+    <div id="likes_buttons_<%= post.id %>">
+      <% if post.already_liked?(current_user) %>
+      
+        <%= form_with(model: post.likes.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
+          <%= hidden_field_tag :post_id, post.id %>
+          <%= f.button :type => "submit", class: "like like-on" do %>
+            <i class="fa fa-thumbs-up fa-2x"></i>
+          <% end %>
+        <% end %>
+
+      <% else %>
+
+        <%= form_with(model: post.likes.build) do |f| %>
+          <%= hidden_field_tag :post_id, post.id %>
+          <%= f.button :type => "submit", class: "like like-off" do %>
+            <i class="fa fa-thumbs-o-up fa-2x"></i>
+          <% end %>
+        <% end %>
+
+      <% end %>
+    </div>
   <% end %>
 </div>

@@ -1,4 +1,6 @@
-<p class="title"><%= @post.name %></p>
-<p class="prefecture"><%= @post.prefecture.name %></p>
+<div class="d-flex align-items-end">
+  <p class="title"><%= @post.name %></p>
+  <p class="prefecture pl-3 pb-1">-<%= @post.prefecture.name %>-</p>
+</div>
 <p class="caption p-2"><%= @post.caption %></p>
 <p>行ってみたい！<%= @post.likes.count %>件</p>
