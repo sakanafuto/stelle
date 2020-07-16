@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $stelle:  hsl(0, 100%, 70%);
-$btn:      hsl(0, 0%, 35%);
+$btn:     hsl(0, 0%, 35%);
+$grey:    hsl(0, 0%, 55%);
 
 @mixin shadow {
   filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
@@ -51,7 +52,7 @@ $shade: rgba(201, 201, 201, .6);
 
       .prefecture {
         font-size: .9rem;
-        color: grey;
+        color: $grey;
       }
 
       .caption {
@@ -66,6 +67,10 @@ $shade: rgba(201, 201, 201, .6);
       
       button {
         margin: 0;
+      }
+
+      small {
+        color: $grey;
       }
     }
     
@@ -106,4 +111,18 @@ $shade: rgba(201, 201, 201, .6);
   &:hover{
     background-color: #f9c500;
   }
+}
+
+.trash {
+  margin: 10px;
+  height: 40px;
+  line-height: 20px;
+  width: 40px;
+  display: block;
+  color: black;
+  background-color: #cccccc;
+  border-style: none;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50%;
 }

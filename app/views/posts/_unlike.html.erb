@@ -1,6 +1,0 @@
-<%= form_with(model: post.likes.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
-  <%= hidden_field_tag :post_id, post.id %>
-  <%= f.button :type => "submit", class: "like like-on" do %>
-    <i class="fa fa-thumbs-up fa-2x"></i>
-  <% end %>
-<% end %>
