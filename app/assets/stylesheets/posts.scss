@@ -1,9 +1,15 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$stelle:  hsl(0, 100%, 70%);
-$btn:     hsl(0, 0%, 35%);
-$grey:    hsl(0, 0%, 55%);
+$stelle:   hsl(0, 100%, 70%);
+$form1:    hsl(0, 0%, 15%);
+$form2:    hsl(0, 0%, 30%);
+$form3:    hsl(0, 0%, 50%);
+$btn:      hsl(0, 0%, 35%);
+$btn-hover:hsl(0, 0%, 40%);
+$tab2:     hsl(0, 0%, 40%);
+$nav:      hsl(0, 0%, 20%);
+$grey:     hsl(0, 0%, 55%);
 
 @mixin shadow {
   filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));

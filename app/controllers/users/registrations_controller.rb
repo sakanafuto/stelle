@@ -69,8 +69,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-  # 追記する
-  def update_resource(resource, params)
-    resource.update_without_password(params)
-  end
+      # 追記
+      def update_resource(resource, params)
+        resource.update_without_password(params)
+      end
 end

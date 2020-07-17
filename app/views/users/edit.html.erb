@@ -6,9 +6,11 @@
 
 <div class="row">
   <div class="col-md-6 offset-md-3">
-    <div class="guest_sign_in">
-      <p class="btn mt-5">ゲストユーザーはプロフィールの編集ができません<br>ごめんなさい！</p>
-    </div>
+    <% if current_user.guest? %>
+      <div class="guest_sign_in">
+        <p class="btn mt-5">ゲストユーザーはプロフィールの編集ができません<br>ごめんなさい！</p>
+      </div>
+    <% end %>
     <div class="page-body">
       <div class="lock-head">
         プロフィールを編集
