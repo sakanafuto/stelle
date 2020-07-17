@@ -8,9 +8,15 @@
   filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
 }
 
-$stelle:  hsl(0, 100%, 70%);
+$stelle:   hsl(0, 100%, 70%);
+$form1:    hsl(0, 0%, 15%);
+$form2:    hsl(0, 0%, 30%);
+$form3:    hsl(0, 0%, 50%);
 $btn:      hsl(0, 0%, 35%);
-$tab2:  hsl(0, 0%, 40%);
+$btn-hover:hsl(0, 0%, 40%);
+$tab2:     hsl(0, 0%, 40%);
+$nav:      hsl(0, 0%, 20%);
+$grey:     hsl(0, 0%, 55%);
 
 .profile-container{
   margin: 0 auto;
@@ -82,5 +88,23 @@ $tab2:  hsl(0, 0%, 40%);
 
   .active {
     background: $tab2 !important;
+  }
+}
+
+.destroy {
+  display: block;
+  text-align: center;
+
+  .destroy-btn {
+    padding: 10px;
+    width: 220px;
+    font-size: .9rem;
+    color: snow;
+    border: none;
+    border-radius: 0;
+    background-color: $btn !important;
+    &:hover {
+      background-color: $stelle !important;
+    }
   }
 }

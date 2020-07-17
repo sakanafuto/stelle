@@ -6,6 +6,11 @@
 
 <div class="row">
   <div class="col-md-6 offset-md-3">
+    <% if current_user.guest? %>
+      <div class="guest_sign_in">
+        <p class="btn mt-5">ゲストユーザーはプロフィールの編集ができません<br>ごめんなさい！</p>
+      </div>
+    <% end %>
     <div class="page-body">
       <div class="lock-head">
         プロフィールを編集
@@ -13,31 +18,51 @@
       <div class="lock-body">
 
         <%= f.label :name, 'ユーザーネーム', class: 'label' %>
-        <%= f.text_field :name, {class: 'form-control placeholder-no-fix', placeholder: '山田 太郎', autofocus: true} %>
+        <% if current_user.guest? %>
+          <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control',required: 'required', disabled: true %>
+        <% else %>
+          <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control',required: 'required' %>
+        <% end %>
 
         <%= f.label :email, 'メールアドレス', class: 'label' %>
-        <%= f.text_field :email, {class: 'form-control placeholder-no-fix', placeholder: 'email@example.com'} %>
+        <% if current_user.guest? %>
+          <%= f.text_field :email, autocomplete: 'email', class: 'form-control', required: 'required', disabled: true %>
+        <% else %>
+          <%= f.text_field :email, autocomplete: 'email', class: 'form-control', required: 'required' %>
+        <% end %>
 
         <%= f.label :image, 'プロフィール画像', class: 'label' %>
         <div class="img">
           <% if @user.avatar? %>
-            <%= image_tag @user.avatar.thumb.url, :size => '100x100', class: "img" %>
+              <%= image_tag @user.avatar.thumb.url, :size => '100x100', class: "img" %>
           <% else %>
             <%= image_tag "default.jpg", :size => '100x100', class: "img" %>
           <% end %>
         </div>
-        <%= f.file_field :avatar, class: 'form-control placeholder-no-fix' %>
+        <% if current_user.guest? %>
+          <%= f.file_field :avatar, class: 'form-control', disabled: true %>
+        <% else %>
+          <%= f.file_field :avatar, class: 'form-control' %>
+        <% end %>
         <%= f.hidden_field :avatar_cache %>
-        <% if @user.persisted? && @user.avatar? %>
+        <% if @user.avatar? %>
           <div class="check-box">
-            <%= f.check_box :remove_avatar, class: ' placeholder-no-fix ' %>
+            <% if current_user.guest? %>
+              <%= f.check_box :remove_avatar, disabled: true %>
+            <% else %>
+              <%= f.check_box :remove_avatar %>
+            <% end %>
             <%= f.label :remove_avatar, 'プロフィール画像を削除しますか？', class: 'remove' %>
           </div>
         <% end %>
 
       </div>
       <div class="lock-bottom">
-        <%= f.submit yield(:button), class: "btn btn-success placeholder-no-fix" %>
+        <% if current_user.guest? %>
+          <%= f.submit yield(:button), class: "btn btn-success", disabled: true %>
+        <% else %>
+          <%= f.submit yield(:button), class: "btn btn-success" %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -6,12 +6,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     root_path
-    # flash[:success] = 'アカウントを登録しました！'
   end
 
   def after_update_path_for(resource)
     root_path
-    # flash[:success] = 'アカウントを編集しました！'
   end
 
   # GET /resource/sign_up
@@ -71,8 +69,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-  # 追記する
-  def update_resource(resource, params)
-    resource.update_without_password(params)
-  end
+      # 追記
+      def update_resource(resource, params)
+        resource.update_without_password(params)
+      end
 end
