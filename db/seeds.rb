@@ -52,14 +52,6 @@ users.each_with_index do |user, i|
   user.save
 end
 
-users = User.all
-user_array = [users.find(1), users.find(2), users.find(3), users.find(4), users.find(5)]
-user_array.each_with_index do |user, i|
-  following = users[i + 2..i + 40]
-  followers = users[i + 3..i + 30]
-  following.each { |followed| user.follow(followed) }
-  followers.each { |follower| follower.follow(user) }
-end
 
 
 # ゲストユーザーのStelle(Post)の作成
@@ -139,13 +131,13 @@ user_posts = [
     name: "春日大社の門",
     prefecture_id: 29,
     caption: "燈籠きれい！",
-    image: "#{Rails.root}/db/fixtures/stelle/kasugataisha.jpg"
+    image: "#{Rails.root}/db/fixtures/stelle/kasugataishamon.jpg"
   },
   {
     name: "合掌造り",
     prefecture_id: 21,
     caption: "冬に観光するのががおすすめです！！飛騨高山や下呂温泉も一緒にどうぞ！。",
-    image: "#{Rails.root}/db/fixtures/stelle/shirakawago.jpg"
+    image: "#{Rails.root}/db/fixtures/stelle/gokayama.jpg"
   },
   {
     name: "富岡製糸場",
@@ -221,11 +213,21 @@ posts.each do |post|
   end
 end
 
+users = User.all
+user_array = [users.find(1), users.find(2), users.find(3), users.find(4), users.find(5)]
+user_array.each_with_index do |user, i|
+  following = users[i + 2..i + 40]
+  followers = users[i + 3..i + 30]
+  following.each { |followed| user.follow(followed) }
+  followers.each { |follower| follower.follow(user) }
+end
+
 # 管理ユーザーの作成
-admin = User.create!(
-  name: "管理ユーザー",
+User.create!(
+  name: "Admin User",
   email: "admin@example.com",
-  password:              "adminpass",
+  password: "adminpass",
   password_confirmation: "adminpass",
+  avatar: open("#{Rails.root}/db/fixtures/avatar/admin.jpg"),
   admin: true
 )

@@ -58,6 +58,21 @@ $shade: rgba(201, 201, 201, .6);
       .caption {
         font-size: 1rem;
       }
+
+      .btn {
+        border: none;
+        .liked_user {
+          font-size: .8rem;
+        }
+      }
+
+      li {
+        list-style: none;
+        .name {
+          color: black;
+          font-size: .7rem;
+        }
+      }
     }
     
     .cd-footer {

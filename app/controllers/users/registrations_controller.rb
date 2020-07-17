@@ -6,12 +6,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     root_path
-    # flash[:success] = 'アカウントを登録しました！'
   end
 
   def after_update_path_for(resource)
     root_path
-    # flash[:success] = 'アカウントを編集しました！'
   end
 
   # GET /resource/sign_up

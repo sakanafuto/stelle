@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :admin_user, only: [:index, :destroy]
 
   def show
     @user = User.find(params[:id])
@@ -10,6 +11,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "ユーザー「#{@user.name}」は正常に削除されました"
+    redirect_to users_path
   end
 
   def edit
@@ -30,8 +38,12 @@ class UsersController < ApplicationController
   end
   
   private
-  
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :avatar_cache, :remove_avatar)
-  end
+    
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :avatar_cache, :remove_avatar)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 end

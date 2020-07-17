@@ -3,4 +3,15 @@
   <p class="prefecture pl-3 pb-1">-<%= @post.prefecture.name %>-</p>
 </div>
 <p class="caption p-2"><%= @post.caption %></p>
-<p>行ってみたい！<%= @post.likes.count %>件</p>
+
+
+<a class="btn p-0" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+  <p class="liked_user m-0">行ってみたい！<%= @post.likes.count %>件</p>
+</a>
+<div class="collapse" id="collapseExample">
+  <div class=" card-body">
+    <% @post.liked_users.each do |user| %>
+      <li><%= link_to user.name, user_path, class: "name" %></li>
+    <% end %>
+  </div>
+</div>
