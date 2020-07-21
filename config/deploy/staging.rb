@@ -40,12 +40,12 @@
 # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
 #
 # Global options
-# --------------
-  set :ssh_options, {
-  keys: '~/.ssh/spot'
-  # forward_agent: false,
-  # auth_methods: %w(password)
-  }
+# # --------------
+#   set :ssh_options, {
+#   keys: '~/.ssh/spot'
+#   # forward_agent: false,
+#   # auth_methods: %w(password)
+#   }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
@@ -72,4 +72,6 @@
 
 server '3.112.153.67', user: 'Stelle', roles: %w{app db web}
 
-set :ssh_options, keys: '~/stelle_key_rsa'
+set :ssh_options, {
+  keys: '~/.ssh/stelle_key_rsa'
+}
