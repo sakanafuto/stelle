@@ -45,11 +45,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
-  # gem 'capistrano',            '~>3.5.0'
-  # gem 'capistrano-bundler',   '~> 1.1.3'
-  # gem 'capistrano-rails',     '~> 1.1.7'
-  # gem 'capistrano-rbenv'
-  # gem 'capistrano3-unicorn'
+  gem 'capistrano',            '~>3.5.0'
+  gem 'capistrano-bundler',   '~> 1.1.3'
+  gem 'capistrano-rails',     '~> 1.1.7'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 
@@ -75,6 +75,10 @@ group :test do
   gem 'rspec_junit_formatter'
 end
 
+
+group :production, :staging do
+  gem 'unicorn'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
