@@ -7,11 +7,10 @@ preload_app true
 
 timeout 30
 
-listen "/tmp/sockets/unicorn.sock", :backlog => 64
+listen "#{app_path}/current/tmp/sockets/unicorn.sock", :backlog => 64
 
-pid "#{app_path}/shared/tmp/pids/unicorn.pid"
+pid "#{app_path}/current/tmp/pids/unicorn.pid"
 
-# Set the path of the log files inside the log folder of the testapp
 stderr_path "#{app_path}/current/log/unicorn.stderr.log"
 stdout_path "#{app_path}/current/log/unicorn.stdout.log"
 

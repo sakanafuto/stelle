@@ -70,6 +70,4 @@
 
 server '3.112.153.67', user: 'Stelle', roles: %w{app db web}
 
-set :ssh_options, {
-  keys: '~/.ssh/stelle_key_rsa'
-}
+set :ssh_options, keys: '~/.ssh/stelle_key_rsa'
