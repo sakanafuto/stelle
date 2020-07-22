@@ -21,7 +21,7 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 set :linked_files, fetch(:linked_files, []).push('config/master.key')
 
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'var/socks', 'vendor/bundle', 'public/system')
 
 set :bundle_jobs, 4
 
