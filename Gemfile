@@ -32,8 +32,8 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'webpacker', github: "rails/webpacker"
-gem 'mini_racer'
-gem 'unicorn'
+# gem 'mini_racer'
+gem 'therubyracer',  platforms: :ruby
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
@@ -77,7 +77,7 @@ end
 
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'unicorn', '=5.4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
