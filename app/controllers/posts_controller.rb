@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_target_post,    only: [:show, :edit, :update, :destroy]
+  before_action :correct_user,       only: [:edit, :update, :destroy]
 
   def index
     @q = Post.ransack(params[:q])
@@ -12,8 +13,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    @like = Like.new
   end
 
   def create
@@ -31,7 +30,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     if @post.destroy
       redirect_to root_path
       flash[:success] = "Stelleを削除しました"
@@ -44,9 +42,13 @@ class PostsController < ApplicationController
   end
 
   private
-
+  
       def post_params
         params.require(:post).permit(:name, :caption, :user_id, :image, :prefecture_id)
+      end
+
+      def set_target_post
+        @post = Post.find(params[:id])
       end
 
       def correct_user

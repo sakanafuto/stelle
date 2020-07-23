@@ -179,7 +179,7 @@ body {
     &:hover {
       color: $stelle;
     }
-    &:before, &:after {
+    &:, &:after {
       position: absolute;
       top: 0;
       content:'';
@@ -187,7 +187,7 @@ body {
       height: 100%;
       display: inline-block;
     }
-    &:before {
+    &: {
       border-left: solid 1px $btn-hover;
       border-top: solid 1px $btn-hover;
       border-bottom: solid 1px $btn-hover;
