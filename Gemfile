@@ -32,10 +32,10 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'webpacker', github: "rails/webpacker"
-# gem 'mini_racer'
 gem 'therubyracer',  platforms: :ruby
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'yui-compressor'
 
 
 group :development, :test do
