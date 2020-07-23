@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: %i[create destroy]
+  before_action :set_user, only: [create destroy]
 
   def create
     following = current_user.follow(@user)

@@ -1,5 +1,5 @@
 <div class="like-area flex-grow-1">
-  <% if post.user.id == current_user.id %>
+  <% if post.user.id == current_user.id || current_user.admin? %>
     
     <%= link_to post_path(post.id), method: :delete, data: {confirm: "削除しますか？"} do %>
       <button class="trash"><i class="fa fa-trash fa-2x"></i></button>
