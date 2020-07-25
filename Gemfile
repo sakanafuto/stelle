@@ -32,7 +32,8 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'webpacker', github: "rails/webpacker"
-gem 'therubyracer',  platforms: :ruby
+# gem 'therubyracer',  platforms: :ruby
+gem 'mini_racer'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
