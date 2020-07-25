@@ -1,14 +1,10 @@
-// mixins, variables, etc.
+/* mixins, variables, etc. */
 
 @mixin sm { @media (min-width: 576px) { @content; } }
 @mixin md { @media (min-width: 768px) { @content; } }
 @mixin lg { @media (min-width: 992px) { @content; } }
+@mixin shadow { filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6)); }
 
-@mixin shadow {
-  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
-}
-
-$stelle:   hsl(0, 100%, 70%);
 $form1:    hsl(0, 0%, 15%);
 $form2:    hsl(0, 0%, 30%);
 $form3:    hsl(0, 0%, 50%);
@@ -17,12 +13,13 @@ $btn-hover:hsl(0, 0%, 40%);
 $tab2:     hsl(0, 0%, 40%);
 $nav:      hsl(0, 0%, 20%);
 $grey:     hsl(0, 0%, 55%);
+$stelle:   hsl(0, 100%, 70%);
+
+/* universal */
 
 .container {
   max-width: 960px;
 }
-
-// body
 
 body {
   margin: 0;
@@ -39,19 +36,21 @@ body {
   color: snow;
   text-align: center;
   @include shadow;
-  
+
   ul {
     border-radius: 0;
   }
-  
+
   .success {
     background-color: $form2;
     list-style: none;
   }
+
   .alert {
     background-color: $form2;
     list-style: none;
   }
+
   .danger {
     background-color: $form2;
     list-style: none;
@@ -62,6 +61,7 @@ body {
 
 .logo {
   text-align: center;
+
   img {
     border-radius: 50%;
   }
@@ -82,7 +82,7 @@ body {
   width: 100%;
   margin-top: 60px;
   background-color: $form2;
-  
+
   .lock-head {
     display: block;
     padding: 15px 0;
@@ -92,6 +92,7 @@ body {
     font-size: 1.4rem;
     font-weight: bold;
   }
+
   .lock-body {
     margin: 10px 35px 20px;
     display: block;
@@ -104,6 +105,7 @@ body {
       text-align: center;
       text-shadow: 0 0 5px snow;
     }
+
     .check-box {
       margin-top: 20px;
       text-align: center;
@@ -111,40 +113,46 @@ body {
       span {
         margin-left: 20px;
       }
+
       .remove {
         padding: 10px;
         color: snow;
         text-shadow: 0 0 5px snow;
       }
     }
-    
+
     .form-control {
       background-color: snow;
       border: none;
       height: 40px;
       color: black;
       border-radius: 0;
+
       &::-moz-placeholder {
         color: black;
         opacity: 1;
       }
+
       &:-ms-input-placeholder {
         color: black;
       }
+
       &::-webkit-input-placeholder {
         color: black;
       }
+
       &:focus {
         background-color: $form3;
       }
     }
+
     .img {
       padding: 10px;
       border-radius: 50%;
       text-align: center;
     }
   }
-  
+
   .lock-bottom {
     display: block;
     background: $form1;
@@ -159,6 +167,7 @@ body {
       border: none;
       border-radius: 0;
       background-color: $btn !important;
+
       &:hover {
         background-color: $stelle !important;
       }
@@ -168,7 +177,7 @@ body {
 
 .guest_sign_in {
   text-align: center;
-  
+
   .btn {
     display: inline-block;
     position: relative;
@@ -176,23 +185,27 @@ body {
     text-decoration: none;
     color: #000;
     transition: .4s;
+
     &:hover {
       color: $stelle;
     }
-    &:, &:after {
+
+    &:before, &:after {
       position: absolute;
       top: 0;
-      content:'';
+      content: '';
       width: 8px;
       height: 100%;
       display: inline-block;
     }
-    &: {
+
+    &:before {
       border-left: solid 1px $btn-hover;
       border-top: solid 1px $btn-hover;
       border-bottom: solid 1px $btn-hover;
       left: 0;
     }
+
     &:after {
       content: '';
       border-top: solid 1px $btn-hover;
@@ -210,6 +223,7 @@ body {
   text-align: center;
   border-radius: 50%;
   color: rgb(66, 66, 66);
+
   &:hover {
     background: lightgray;
   }
@@ -219,7 +233,7 @@ body {
   position: relative;
   width: 90%;
   text-align: center;
-  
+
   .select {
     position: relative;
     background-color: transparent;
@@ -228,6 +242,7 @@ body {
     border-radius: 0;
     border: none;
     border-bottom: 1px solid $nav;
+
     &:hover {
       color: $stelle;
     }
@@ -243,7 +258,7 @@ body {
     display: inline-block;
     text-decoration: none;
     width: 50px;
-    margin:2px;
+    margin: 2px;
     height: 50px;
     line-height: 50px;
     font-size: 23px;
@@ -254,15 +269,17 @@ body {
   }
 
   i {
-    line-height:50px;
+    line-height: 50px;
   }
 }
 
 .info {
   position: relative;
-  &:hover span{
+
+  &:hover span {
     display: inline;
   }
+
   span {
     display: none;
     position: absolute;
@@ -273,6 +290,7 @@ body {
     color: snow;
     background: $nav;
     font-size: .8rem;
+
     &:after {
       content: "";
       position: absolute;
@@ -296,38 +314,42 @@ body {
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     break-inside: column-avoid;
-    
+
     img {
       width: 100%;
       margin: 0;
       margin-top: 20px;
     }
+
     @media screen and (max-width: 480px) {
-      .like-area, .name-area {
+
+      .like-area,
+      .name-area {
         display: none;
       }
     }
-    
+
     @media screen and (min-width: 481px) {
 
       .like-area {
         @include shadow;
-        z-index:1000;
+        z-index: 1000;
         position: absolute;
         bottom: 0;
         right: 0;
       }
-      
+
       .name-area {
         @include shadow;
         height: 20px;
         padding: 0 8px;
-        z-index:1000;
+        z-index: 1000;
         position: absolute;
         top: 30px;
         left: 10px;
         background: snow;
         border-radius: .5rem;
+
         p {
           font-size: .8rem;
         }

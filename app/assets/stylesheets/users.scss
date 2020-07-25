@@ -5,24 +5,24 @@
 /* mixins, variables, etc. */
 
 @mixin shadow {
-  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
 }
 
-$stelle:   hsl(0, 100%, 70%);
-$form1:    hsl(0, 0%, 15%);
-$form2:    hsl(0, 0%, 30%);
-$form3:    hsl(0, 0%, 50%);
-$btn:      hsl(0, 0%, 35%);
+$stelle: hsl(0, 100%, 70%);
+$form1: hsl(0, 0%, 15%);
+$form2: hsl(0, 0%, 30%);
+$form3: hsl(0, 0%, 50%);
+$btn: hsl(0, 0%, 35%);
 $btn-hover:hsl(0, 0%, 40%);
-$tab2:     hsl(0, 0%, 40%);
-$nav:      hsl(0, 0%, 20%);
-$grey:     hsl(0, 0%, 55%);
+$tab2: hsl(0, 0%, 40%);
+$nav: hsl(0, 0%, 20%);
+$grey: hsl(0, 0%, 55%);
 
-.profile-container{
+.profile-container {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  
+
   img {
     border-radius: 50%;
   }
@@ -32,25 +32,26 @@ $grey:     hsl(0, 0%, 55%);
       font-weight: bold;
       font-size: 1.6rem;
     }
-    
+
     .email {
       color: gray;
       font-family: 'fnkfrsh';
     }
   }
 }
-  
-  /* Menu */
-  
+
+/* Menu */
+
 .user-menu {
   display: flex;
   border-top: rgb(165, 165, 165) 1px solid;
-    
+
   .item {
     margin-right: 24px;
     text-align: center;
     color: rgb(165, 165, 165);
-    &:hover{
+
+    &:hover {
       color: black;
     }
   }
@@ -64,6 +65,7 @@ $grey:     hsl(0, 0%, 55%);
     border: none;
     border-radius: 0;
     background-color: $btn !important;
+
     &:hover {
       background-color: $stelle !important;
     }
@@ -103,6 +105,7 @@ $grey:     hsl(0, 0%, 55%);
     border: none;
     border-radius: 0;
     background-color: $btn !important;
+
     &:hover {
       background-color: $stelle !important;
     }

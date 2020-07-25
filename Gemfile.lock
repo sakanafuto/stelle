@@ -380,7 +380,6 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yui-compressor (0.12.0)
     zeitwerk (2.4.0)
 
 PLATFORMS
@@ -437,7 +436,6 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers (~> 3.0)
   webpacker!
-  yui-compressor
 
 RUBY VERSION
    ruby 2.6.5p114

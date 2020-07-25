@@ -35,7 +35,6 @@ gem 'webpacker', github: "rails/webpacker"
 gem 'therubyracer',  platforms: :ruby
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
-gem 'yui-compressor'
 
 
 group :development, :test do
