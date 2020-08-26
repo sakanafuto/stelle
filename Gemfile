@@ -32,7 +32,6 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'webpacker', github: "rails/webpacker"
-# gem 'therubyracer',  platforms: :ruby
 gem 'mini_racer'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
@@ -48,6 +47,7 @@ group :development, :test do
   gem 'capistrano',            '~>3.5.0'
   gem 'capistrano-bundler',   '~> 1.1.3'
   gem 'capistrano-rails',     '~> 1.1.7'
+  gem 'capistrano-rails-db'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
 end
@@ -69,7 +69,6 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'webdrivers', '~> 3.0'
-
   # ---以下追加---  
   gem 'selenium-webdriver'
   gem 'rspec_junit_formatter'
