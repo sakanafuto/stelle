@@ -50,7 +50,7 @@ http://3.112.153.67/
 - Capistrano
 - Linux
 - Nginx / Unicorn
-- AWS (VPC, EC2, S3)
+- AWS (VPC, EC2, RDS, S3)
 - jQuery / Sass / Bootstrap
 
 # 今後の課題
