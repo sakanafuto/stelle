@@ -1,19 +1,15 @@
 version: 2
-orbs:
-  ruby: circleci/ruby@0.1.2 
-
 jobs:
   build:
+    working_directory: ~/stelle-app
+
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
         environment:
-          - BUNDLER_VERSION: 1.17.2
           - RAILS_ENV: 'test'
       - image: circleci/mysql:5.7.30
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-
-    working_directory: ~/stelle
 
     steps:
       - checkout
@@ -23,11 +19,7 @@ jobs:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
 
-      - run:
-          name: install dependencies
-          command: |
-            gem install bundler -v 1.17.2
-            bundle instal --jobs=4 --retry=3 --path vendor/bundle
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
