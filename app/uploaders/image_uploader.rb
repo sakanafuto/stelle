@@ -19,9 +19,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
-  
+
   version :show do
     process resize_to_fit: [800, 800]
   end

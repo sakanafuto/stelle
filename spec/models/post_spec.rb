@@ -25,12 +25,12 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let(:post) { create(:post) }
-  
-  it "ファクトリが有効である" do
+
+  it 'ファクトリが有効である' do
     expect(post).to be_valid
   end
 
-  it "ユーザー、名前、キャプション、画像、都道府県がある場合、有効" do
+  it 'ユーザー、名前、キャプション、画像、都道府県がある場合、有効' do
     user = create(:user)
     prefecture = create(:prefecture)
     post = Post.new(
@@ -43,49 +43,46 @@ RSpec.describe Post, type: :model do
     expect(post).to be_valid
   end
 
-  describe "存在性の検証" do
-
-    it "名前がない場合、無効" do
+  describe '存在性の検証' do
+    it '名前がない場合、無効' do
       post.name = nil
       post.valid?
       expect(post).to_not be_valid
     end
-  
-    it "キャプションがない場合、無効" do
+
+    it 'キャプションがない場合、無効' do
       post.caption = nil
       post.valid?
       expect(post).to_not be_valid
     end
-  
-    it "画像がない場合、無効" do
+
+    it '画像がない場合、無効' do
       post.image = nil
       post.valid?
       expect(post).to_not be_valid
     end
 
-    it "都道府県がない場合、無効" do
+    it '都道府県がない場合、無効' do
       post.prefecture_id = nil
       post.valid?
       expect(post).to_not be_valid
     end
   end
-    
-  describe "文字数の検証" do
-    
-    it "300文字以内キャプションの場合、有効" do
-      post.caption = "a" * 300
+
+  describe '文字数の検証' do
+    it '300文字以内キャプションの場合、有効' do
+      post.caption = 'a' * 300
       expect(post).to be_valid
     end
 
-    it "301文字を超えるキャプションの場合、無効" do
-      post.caption =  "a" * 301
+    it '301文字を超えるキャプションの場合、無効' do
+      post.caption =  'a' * 301
       post.valid?
       expect(post.errors).to be_added(:caption, :too_long, count: 300)
     end
   end
 
-  describe "その他機能" do
-
+  describe 'その他機能' do
     it '投稿をいいね/いいね解除できること' do
       Taro = create(:user)
       Jiro = create(:user, :with_posts, posts_count: 1)

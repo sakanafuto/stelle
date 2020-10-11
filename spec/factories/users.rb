@@ -36,14 +36,14 @@ FactoryBot.define do
   trait :admin do
     name { 'AdminUser' }
     email { 'admin@sample.com' }
-    password { 'adminpass'}
+    password { 'adminpass' }
     admin { 'true' }
   end
-  
+
   trait :guest do
     name { 'GuestUser' }
     email { 'guest@sample.com' }
-    password { 'guestpass'}
+    password { 'guestpass' }
     guest { 'true' }
   end
 

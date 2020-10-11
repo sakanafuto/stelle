@@ -1,20 +1,20 @@
 app_path = '/var/www/stelle'
 
 worker_processes 2
-working_directory "#{app_path}" + "/current"
+working_directory app_path.to_s + '/current'
 
 preload_app true
 
 timeout 30
 
-listen "/tmp/unicorn.sock", :backlog => 64
+listen '/tmp/unicorn.sock', backlog: 64
 
-pid "tmp/pids/unicorn.pid"
+pid 'tmp/pids/unicorn.pid'
 
 stderr_path "#{app_path}/current/log/unicorn.stderr.log"
 stdout_path "#{app_path}/current/log/unicorn.stdout.log"
 
-before_fork do |server, worker|
+before_fork do |_server, _worker|
   ENV['BUNDLE_GEMFILE'] = File.expand_path('Gemfile', ENV['RAILS_ROOT'])
 end
 
@@ -33,6 +33,6 @@ before_fork do |server, worker|
   sleep 1
 end
 
-after_fork do |server, worker|
+after_fork do |_server, _worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 end
