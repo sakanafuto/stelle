@@ -53,7 +53,7 @@ jobs:
             --out /tmp/test-results/rspec.xml \
             --format progress \
             $TEST_FILES
-            
+
 
       - store_test_results:
           path: /tmp/test-results
