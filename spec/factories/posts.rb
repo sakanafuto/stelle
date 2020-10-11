@@ -23,8 +23,8 @@
 #
 FactoryBot.define do
   factory :post do
-    name { "名古屋城 " }
-    caption { "よき" }
+    name { '名古屋城 ' }
+    caption { 'よき' }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image.jpg')) }
     prefecture_id { 23 }
     association :user

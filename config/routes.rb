@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'posts#index'
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
-  
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+
+  resources :users, only: %i[index show edit update destroy]
   get 'users', to: 'posts#index'
 
   resources :posts
-  resources :likes, only: [:create, :destroy]
-  resources :relationships, only: [:create, :destroy]
+  resources :likes, only: %i[create destroy]
+  resources :relationships, only: %i[create destroy]
 end

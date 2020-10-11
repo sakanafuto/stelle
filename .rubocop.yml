@@ -1,0 +1,54 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'lib/**/*'
+    - 'node_modules/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'app/uploaders/*'
+  Rails:
+    enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 12
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+# Lint/AssignmentInCondition:
+#   Enabled: false
+
+Style/MixinUsage:
+  Enabled: false

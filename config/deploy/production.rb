@@ -7,8 +7,6 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-
-
 # role-based syntax
 # ==================
 
@@ -20,8 +18,6 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-
-
 
 # Configuration
 # =============
@@ -68,5 +64,5 @@
 # role :web, %w{Stelle@3.112.153.67}
 # role :db,  %w{Stelle@3.112.153.67}, :primary => true
 
-server '3.112.153.67', user: 'Stelle', roles: %w{app db web}
+server '3.112.153.67', user: 'Stelle', roles: %w[app db web]
 set :ssh_options, keys: '~/.ssh/stelle_key_rsa'
