@@ -1,0 +1,68 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
+
+references:
+  defaults: &defaults
+    working_directory: ~/stelle
+
+  ruby_docker_image: &ruby_docker_image
+    image: circleci/ruby:2.6.5-node-browsers
+    environment:
+      BUNDLER_VERSION: 1.17.2
+      RAILS_ENV: test
+      MYSQL_HOST: 127.0.0.1
+      MYSQL_USERNAME: 'root'
+      MYSQL_PASSWORD: ''
+      MYSQL_PORT: 3307
+
+  restore_gem_cache: &restore_gem_cache
+    restore_cache:
+      keys:
+        - v1-dependencies-{{ checksum "Gemfile.lock" }}
+        - v1-dependencies-
+
+jobs:
+  build:
+    docker:
+      - *ruby_docker_image
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    steps:
+      - checkout
+      - *restore_gem_cache
+      - run: gem install bundler -v 1.17.2
+      - run: bundle instal --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+        paths:
+          - ./vendor/bundle
+        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run: mv config/database.yml.ci config/database.yml 
+      - run: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+      - run: bundle exec rake db:create db:schema:load --trace
+
+      - run:
+        name: Run RuboCop
+        command: bundle exec rubocop
+
+      - run:
+        name: Run RSpec
+        command: |
+          mkdir /tmp/test-results
+          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+            circleci tests split --split-by=timings)"
+
+          bundle exec rspec \
+            --format progress \
+            --format RspecJunitFormatter \
+            --out /tmp/test-results/rspec.xml \
+            --format progress \
+            $TEST_FILES
+
+
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results

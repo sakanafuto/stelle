@@ -32,6 +32,7 @@ gem 'mini_magick', '4.9.4'
 gem 'mini_racer'
 gem 'rails-i18n'
 gem 'ransack'
+gem 'rspec_junit_formatter'
 gem 'rubocop', require: false
 gem 'rubocop-rails'
 gem 'webpacker', github: 'rails/webpacker'
