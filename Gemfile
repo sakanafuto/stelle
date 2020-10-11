@@ -15,9 +15,9 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 # ---以下追加---
+gem 'bcrypt_pbkdf'
 gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap-honoka-rails', '~> 4.3.1'
-gem 'bcrypt_pbkdf' 
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
