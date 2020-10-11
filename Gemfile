@@ -35,6 +35,8 @@ gem 'webpacker', github: "rails/webpacker"
 gem 'mini_racer'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'rubocop', require: false
+gem 'rubocop-rails'
 
 
 group :development, :test do
