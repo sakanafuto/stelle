@@ -32,7 +32,6 @@ gem 'mini_magick', '4.9.4'
 gem 'mini_racer'
 gem 'rails-i18n'
 gem 'ransack'
-gem 'rspec_junit_formatter'
 gem 'rubocop', require: false
 gem 'rubocop-rails'
 gem 'webpacker', github: 'rails/webpacker'
@@ -48,6 +47,7 @@ group :development, :test do
   gem 'capistrano-rails-db'
   gem 'capistrano-rbenv'
   gem 'factory_bot_rails'
+  gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
 end
@@ -68,7 +68,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'webdrivers', '~> 3.0'
   # ---以下追加---
-  gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
 end
 

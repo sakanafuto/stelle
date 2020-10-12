@@ -28,6 +28,7 @@ class Post < ApplicationRecord
   belongs_to :prefecture
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
+  has_many :comments, dependent: :destroy
 
   default_scope -> { order(created_at: :DESC) }
 
