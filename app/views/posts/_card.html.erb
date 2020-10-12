@@ -15,5 +15,10 @@
   <% if user_signed_in? %>
     <%= render 'like_form', post: @post %>
   <% end %>
+  <p>コメントを見る</p>
+    <% @comments.each do |comment| %>
+      <small><% comment.content %></small>
+      a
+    <% end %>
   <small class="text-right"><%= l @post.created_at, format: :short %>に投稿</small>
 </div>

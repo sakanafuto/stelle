@@ -12,7 +12,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def show; end
+  def show
+    @comments = @post.comments
+    @comment = current_user.comments.new
+  end
 
   def create
     @post = Post.new(post_params)
@@ -42,15 +45,15 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:name, :caption, :user_id, :image, :prefecture_id)
-  end
+    def post_params
+      params.require(:post).permit(:name, :caption, :user_id, :image, :prefecture_id)
+    end
 
-  def set_target_post
-    @post = Post.find(params[:id])
-  end
+    def set_target_post
+      @post = Post.find(params[:id])
+    end
 
-  def correct_user
-    redirect_to(root_url) unless (@post.user == current_user) || current_user.admin?
-  end
+    def correct_user
+      redirect_to(root_url) unless (@post.user == current_user) || current_user.admin?
+    end
 end
