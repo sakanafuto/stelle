@@ -45,15 +45,15 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:name, :caption, :user_id, :image, :prefecture_id)
-    end
+  def post_params
+    params.require(:post).permit(:name, :caption, :user_id, :image, :prefecture_id)
+  end
 
-    def set_target_post
-      @post = Post.find(params[:id])
-    end
+  def set_target_post
+    @post = Post.find(params[:id])
+  end
 
-    def correct_user
-      redirect_to(root_url) unless (@post.user == current_user) || current_user.admin?
-    end
+  def correct_user
+    redirect_to(root_url) unless (@post.user == current_user) || current_user.admin?
+  end
 end
