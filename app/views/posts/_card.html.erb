@@ -15,10 +15,18 @@
   <% if user_signed_in? %>
     <%= render 'like_form', post: @post %>
   <% end %>
-  <p>コメントを見る</p>
-    <% @comments.each do |comment| %>
-      <small><% comment.content %></small>
-      a
+  
+
+<a class="btn p-0" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+  <small class="liked_user m-0">行ってみたい！<%= @post.likes.count %>件</small>
+</a>
+<div class="collapse" id="collapseExample">
+  <div class=" cd-body">
+    <% @post.liked_users.each do |user| %>
+      <li><%= link_to user.name, user_path, class: "name" %></li>
     <% end %>
+  </div>
+</div>
+    
   <small class="text-right"><%= l @post.created_at, format: :short %>に投稿</small>
 </div>

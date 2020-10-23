@@ -5,13 +5,7 @@
 <p class="caption p-2"><%= @post.caption %></p>
 
 
-<a class="btn p-0" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-  <p class="liked_user m-0">行ってみたい！<%= @post.likes.count %>件</p>
-</a>
-<div class="collapse" id="collapseExample">
-  <div class=" card-body">
-    <% @post.liked_users.each do |user| %>
-      <li><%= link_to user.name, user_path, class: "name" %></li>
+<p>コメントを見る</p>
+    <% @comments.each do |comment| %>
+      <small><% comment.content %></small>
     <% end %>
-  </div>
-</div>
