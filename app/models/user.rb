@@ -26,8 +26,6 @@ class User < ApplicationRecord
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
 
-  mount_uploader :avatar, AvatarUploader
-
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
@@ -38,6 +36,8 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   has_many :comments
+
+  mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true, length: { maximum: 20 }
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
@@ -50,6 +50,7 @@ class User < ApplicationRecord
     user = User.find_by(guest: true)
   end
 
+  # フォロー・フォロワー機能
   def follow(other_user)
     return if self == other_user
     relationships.find_or_create_by(follow_id: other_user.id)
